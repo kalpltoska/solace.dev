@@ -19,12 +19,12 @@ package receiver
 import (
 	"sync/atomic"
 
-	"solace.dev/go/messaging/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/constants"
 
-	"solace.dev/go/messaging/internal/impl/future"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/future"
 
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/pkg/solace"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace"
 )
 
 // alias int32 for both receiver state and sub state

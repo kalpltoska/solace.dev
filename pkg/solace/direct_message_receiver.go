@@ -19,9 +19,9 @@ package solace
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/resource"
 )
 
 // The DirectMessageReceiver is used to receive direct messages.

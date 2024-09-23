@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
 )
 
 var publisherProperties = config.PublisherPropertyMap{

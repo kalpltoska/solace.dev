@@ -29,7 +29,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
 )
 
 // Reexport of various CCSMP types

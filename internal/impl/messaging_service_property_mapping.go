@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
 )
 
 // authenticationStrategyToUsernamePropertyMapping contains the mapping of authentication scheme to its relevant username property

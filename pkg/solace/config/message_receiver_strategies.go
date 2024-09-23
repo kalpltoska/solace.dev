@@ -19,7 +19,7 @@ package config
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message/rgmid"
 )
 
 // ReplayStrategy is an interface for Message Replay strategies.

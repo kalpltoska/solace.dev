@@ -21,9 +21,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/pkg/solace/metrics"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/metrics"
 )
 
 var rxMetrics = map[metrics.Metric]ccsmp.SolClientStatsRX{

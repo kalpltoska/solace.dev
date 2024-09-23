@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
 )
 
 var logLevels []logging.LogLevel = []logging.LogLevel{

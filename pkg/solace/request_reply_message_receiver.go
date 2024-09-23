@@ -3,9 +3,9 @@ package solace
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/resource"
 )
 
 // Replier allows for received request-reply messages to be replied to. The

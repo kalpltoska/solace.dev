@@ -16,7 +16,7 @@
 
 package messaging
 
-import "solace.dev/go/messaging/internal/impl/core"
+import "github.com/kalpltoska/solace.dev/go/messaging/internal/impl/core"
 
 // On load, the version of the API is set.
 func init() {

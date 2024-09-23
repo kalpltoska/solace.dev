@@ -19,8 +19,8 @@ package impl
 // This file gives access from the impl package to the message's ReplicationGroupMessageIDFromString allocator
 
 import (
-	"solace.dev/go/messaging/internal/impl/message"
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message/rgmid"
 )
 
 // ReplicationGroupMessageIDOf function

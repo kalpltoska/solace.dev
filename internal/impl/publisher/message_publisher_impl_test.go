@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"solace.dev/go/messaging/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/core"
 )
 
 func TestMessagePublisherStartStateChecks(t *testing.T) {

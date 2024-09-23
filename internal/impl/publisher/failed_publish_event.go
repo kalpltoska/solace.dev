@@ -19,8 +19,8 @@ package publisher
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/resource"
 )
 
 type failedPublishEvent struct {

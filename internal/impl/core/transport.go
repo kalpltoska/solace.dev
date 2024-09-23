@@ -24,10 +24,10 @@ import (
 	"fmt"
 	"runtime"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/pkg/solace"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace"
 )
 
 // Transport interface

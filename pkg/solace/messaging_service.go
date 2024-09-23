@@ -19,8 +19,8 @@ package solace
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/metrics"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/metrics"
 )
 
 // MessagingService represents a broker that provides a messaging service.

@@ -19,8 +19,8 @@ package core
 import (
 	"strconv"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
 )
 
 var logger = logging.Default.For(nil)

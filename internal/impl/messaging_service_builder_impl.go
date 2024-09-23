@@ -20,12 +20,12 @@ package impl
 import (
 	"fmt"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
 )
 
 // NewMessagingServiceBuilder creates a messaging service builder

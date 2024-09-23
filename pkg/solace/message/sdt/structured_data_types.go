@@ -27,7 +27,7 @@ import (
 	"strconv"
 	"unsafe"
 
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/resource"
 )
 
 // Map represents a map between strings and values that can be converted into structured

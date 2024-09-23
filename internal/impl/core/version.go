@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
 )
 
 const dateFormat = "Jan _2 15:04:05"

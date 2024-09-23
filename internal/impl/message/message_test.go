@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
 )
 
 func TestOutboundMessageFree(t *testing.T) {

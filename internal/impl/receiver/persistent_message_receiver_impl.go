@@ -25,19 +25,19 @@ import (
 	"time"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/executor"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/internal/impl/message"
-	"solace.dev/go/messaging/internal/impl/validation"
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	apimessage "solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
-	"solace.dev/go/messaging/pkg/solace/resource"
-	"solace.dev/go/messaging/pkg/solace/subcode"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/executor"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/validation"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/config"
+	apimessage "github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/subcode"
 )
 
 type persistentMessageReceiverImpl struct {
@@ -1211,6 +1211,12 @@ func (builder *persistentMessageReceiverBuilderImpl) Build(queue *resource.Queue
 		}
 	}
 
+	ackMode := ccsmp.SolClientFlowPropAckmodeClient
+	if doAutoAck {
+		ackMode = ccsmp.SolClientFlowPropAckmodeAuto
+		doAutoAck = false
+	}
+
 	var receiverStateChangeListener solace.ReceiverStateChangeListener = nil
 	if stateChangeListenerInterface, ok := builder.properties[config.ReceiverPropertyPersistentStateChangeListener]; ok {
 		receiverStateChangeListener, ok = stateChangeListenerInterface.(solace.ReceiverStateChangeListener)
@@ -1225,7 +1231,7 @@ func (builder *persistentMessageReceiverBuilderImpl) Build(queue *resource.Queue
 		// set the entity type to queue
 		ccsmp.SolClientFlowPropBindEntityID, ccsmp.SolClientFlowPropBindEntityQueue,
 		// set the ackmode to client, we handle auto ack in the receiver, NOT through ccsmp
-		ccsmp.SolClientFlowPropAckmode, ccsmp.SolClientFlowPropAckmodeClient,
+		ccsmp.SolClientFlowPropAckmode, ackMode,
 		// set the active flow indicator to enabled
 		ccsmp.SolClientFlowPropActiveFlowInd, ccsmp.SolClientPropEnableVal,
 		// start the flow in the 'stopped' state, SOL-63525

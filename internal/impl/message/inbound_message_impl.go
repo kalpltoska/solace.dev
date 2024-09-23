@@ -24,10 +24,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/message/rgmid"
 )
 
 // InboundMessageImpl structure

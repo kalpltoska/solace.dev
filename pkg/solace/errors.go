@@ -16,7 +16,7 @@
 
 package solace
 
-import "solace.dev/go/messaging/pkg/solace/subcode"
+import "github.com/kalpltoska/solace.dev/go/messaging/pkg/solace/subcode"
 
 // A solaceError struct used as a basis for all wrapping errors.
 type solaceError struct {
