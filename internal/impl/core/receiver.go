@@ -22,10 +22,10 @@ import (
 	"sync/atomic"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/pkg/solace"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
 )
 
 // SubscriptionCorrelationID defined

@@ -20,8 +20,8 @@ package logging
 import (
 	"io"
 
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
 )
 
 // LogLevel is used to configure the logging-level of the API. The different levels can

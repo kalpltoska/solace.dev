@@ -19,7 +19,7 @@ package resource_test
 import (
 	"testing"
 
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 func TestValidShareNameOf(t *testing.T) {

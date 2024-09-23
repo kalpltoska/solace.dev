@@ -22,18 +22,18 @@ import (
 	"sync/atomic"
 	"time"
 
-	"solace.dev/go/messaging/internal/impl/executor"
-	"solace.dev/go/messaging/internal/impl/future"
-	"solace.dev/go/messaging/internal/impl/receiver"
+	"github.com/kalpltoska/solace.dev/internal/impl/executor"
+	"github.com/kalpltoska/solace.dev/internal/impl/future"
+	"github.com/kalpltoska/solace.dev/internal/impl/receiver"
 
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/internal/impl/message"
-	"solace.dev/go/messaging/internal/impl/publisher"
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/metrics"
+	"github.com/kalpltoska/solace.dev/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/internal/impl/publisher"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/pkg/solace/metrics"
 )
 
 // the main service lifecycle state

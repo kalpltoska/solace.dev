@@ -22,7 +22,7 @@ import (
 	"strings"
 	"testing"
 
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
 )
 
 var serviceProperties = config.ServicePropertyMap{

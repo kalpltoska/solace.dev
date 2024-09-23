@@ -29,7 +29,7 @@ import (
 	"time"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
 )
 
 // SolClientMessagePt is assigned a value

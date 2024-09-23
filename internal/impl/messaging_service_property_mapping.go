@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
 )
 
 // authenticationStrategyToUsernamePropertyMapping contains the mapping of authentication scheme to its relevant username property
@@ -70,6 +70,7 @@ var servicePropertyToCCSMPMap = map[config.ServiceProperty]property{
 
 	/* Transport Layer Properties */
 	config.TransportLayerPropertyHost:                             {ccsmp.SolClientSessionPropHost, defaultConverter},
+	config.TransportLayerPropertyBindIp:                           {ccsmp.SolClientSessionPropBindIP, defaultConverter},
 	config.TransportLayerPropertyConnectionAttemptsTimeout:        {ccsmp.SolClientSessionPropConnectTimeoutMs, durationConverter},
 	config.TransportLayerPropertyConnectionRetries:                {ccsmp.SolClientSessionPropConnectRetries, defaultConverter},
 	config.TransportLayerPropertyConnectionRetriesPerHost:         {ccsmp.SolClientSessionPropConnectRetriesPerHost, defaultConverter},

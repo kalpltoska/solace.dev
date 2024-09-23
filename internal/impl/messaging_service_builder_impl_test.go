@@ -22,11 +22,11 @@ import (
 	"testing"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
 
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
 )
 
 func TestMessagingServiceGC(t *testing.T) {

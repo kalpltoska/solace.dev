@@ -19,9 +19,9 @@ package solace
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/message/sdt"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/sdt"
 )
 
 // OutboundMessageBuilder allows construction of messages to be sent.

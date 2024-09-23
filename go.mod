@@ -1,3 +1,3 @@
-module solace.dev/go/messaging
+module github.com/kalpltoska/solace.dev
 
 go 1.17

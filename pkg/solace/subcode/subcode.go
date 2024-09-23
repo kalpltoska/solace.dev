@@ -19,7 +19,7 @@
 // be used only when absolutely necessary.
 package subcode
 
-import "solace.dev/go/messaging/internal/ccsmp"
+import "github.com/kalpltoska/solace.dev/internal/ccsmp"
 
 //go:generate go run subcode_generator.go $SOLCLIENT_H
 

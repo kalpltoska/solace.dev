@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"os"
 
-	"solace.dev/go/messaging/internal/generator"
+	"github.com/kalpltoska/solace.dev/internal/generator"
 )
 
 // This file is not part of the exported library, and is used to generate subcode_generated.go.

@@ -25,16 +25,16 @@ import (
 	"time"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/internal/impl/message"
-	"solace.dev/go/messaging/internal/impl/validation"
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	apimessage "solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/internal/impl/validation"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	apimessage "github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 type receiverBackpressureStrategy byte

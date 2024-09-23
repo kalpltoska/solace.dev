@@ -21,16 +21,16 @@ import (
 	"testing"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
-	messageimpl "solace.dev/go/messaging/internal/impl/message"
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
-	"solace.dev/go/messaging/pkg/solace/subcode"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
+	messageimpl "github.com/kalpltoska/solace.dev/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace/subcode"
 )
 
 func TestPersistentBuilderWithSubscriptions(t *testing.T) {

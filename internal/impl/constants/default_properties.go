@@ -17,8 +17,8 @@
 package constants
 
 import (
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
 )
 
 // This file defines the set of default properties used in various services

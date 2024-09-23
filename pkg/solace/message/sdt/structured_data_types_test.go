@@ -22,8 +22,8 @@ import (
 	"reflect"
 	"testing"
 
-	"solace.dev/go/messaging/pkg/solace/message/sdt"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/sdt"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 type typeCase struct {

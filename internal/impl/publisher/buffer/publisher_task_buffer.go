@@ -20,8 +20,8 @@ package buffer
 import (
 	"time"
 
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
 )
 
 // PublisherTask task

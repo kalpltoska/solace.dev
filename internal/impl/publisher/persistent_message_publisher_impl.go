@@ -23,22 +23,22 @@ import (
 	"time"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/executor"
+	"github.com/kalpltoska/solace.dev/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/internal/impl/executor"
 
-	"solace.dev/go/messaging/internal/impl/publisher/buffer"
+	"github.com/kalpltoska/solace.dev/internal/impl/publisher/buffer"
 
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
 
-	"solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
 
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/message"
 
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	apimessage "solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	apimessage "github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 type persistentPublishable struct {

@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"os"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
 )
 
 var supportedKeys = []string{

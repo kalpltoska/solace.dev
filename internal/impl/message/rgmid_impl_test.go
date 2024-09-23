@@ -19,11 +19,11 @@ package message
 import (
 	"testing"
 
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/rgmid"
 
 	// Include core to boot up CCSMP with solclient initialize
-	_ "solace.dev/go/messaging/internal/impl/core"
+	_ "github.com/kalpltoska/solace.dev/internal/impl/core"
 )
 
 func TestRMIDToString(t *testing.T) {

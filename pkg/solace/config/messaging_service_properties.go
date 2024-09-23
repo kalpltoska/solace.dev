@@ -176,6 +176,9 @@ const (
 	// The entry for the HOST property should provide a protocol, host and port.
 	TransportLayerPropertyHost ServiceProperty = "solace.messaging.transport.host"
 
+	// TransportLayerPropertyBindIp is the hostname or IP address of the machine on which the application is running.
+	TransportLayerPropertyBindIp ServiceProperty = "solace.messaging.transport.bind-ip"
+
 	// TransportLayerPropertyConnectionAttemptsTimeout is the timeout period for a connect operation to a given host.
 	TransportLayerPropertyConnectionAttemptsTimeout ServiceProperty = "solace.messaging.transport.connection-attempts-timeout"
 

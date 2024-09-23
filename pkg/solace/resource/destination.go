@@ -110,26 +110,29 @@ func TopicSubscriptionOf(topic string) *TopicSubscription {
 
 // Queue represents a queue used for guaranteed messaging receivers.
 type Queue struct {
-	name                           string
-	exclusivelyAccessible, durable bool
+	Name       string
+	Exclusive  bool
+	Durable    bool
+	Browser    bool
+	WindowSize int
 }
 
 // GetName returns the name of the queue. Implements the Destination interface.
 func (q *Queue) GetName() string {
-	return q.name
+	return q.Name
 }
 
 // IsExclusivelyAccessible determines if Queue supports exclusive or shared-access mode.
 // Returns true if the Queue can serve only one consumer at any one time, false if the
 // Queue can serve multiple consumers with each consumer serviced in a round-robin fashion.
 func (q *Queue) IsExclusivelyAccessible() bool {
-	return q.exclusivelyAccessible
+	return q.Exclusive
 }
 
 // IsDurable determines if the Queue is durable. Durable queues are privisioned objects on
 // the broker that have a lifespan that is independent of any one client session.
 func (q *Queue) IsDurable() bool {
-	return q.durable
+	return q.Durable
 }
 
 func (q *Queue) String() string {
@@ -139,35 +142,35 @@ func (q *Queue) String() string {
 // QueueDurableExclusive creates a new durable, exclusive queue with the specified name.
 func QueueDurableExclusive(queueName string) *Queue {
 	return &Queue{
-		name:                  queueName,
-		exclusivelyAccessible: true,
-		durable:               true,
+		Name:      queueName,
+		Exclusive: true,
+		Durable:   true,
 	}
 }
 
 // QueueDurableNonExclusive creates a durable, non-exclusive queue with the specified name.
 func QueueDurableNonExclusive(queueName string) *Queue {
 	return &Queue{
-		name:                  queueName,
-		exclusivelyAccessible: false,
-		durable:               true,
+		Name:      queueName,
+		Exclusive: false,
+		Durable:   true,
 	}
 }
 
 // QueueNonDurableExclusive creates an exclusive, non-durable queue with the specified name.
 func QueueNonDurableExclusive(queueName string) *Queue {
 	return &Queue{
-		name:                  queueName,
-		exclusivelyAccessible: true,
-		durable:               false,
+		Name:      queueName,
+		Exclusive: true,
+		Durable:   false,
 	}
 }
 
 // QueueNonDurableExclusiveAnonymous creates an anonymous, exclusive, and non-durable queue.
 func QueueNonDurableExclusiveAnonymous() *Queue {
 	return &Queue{
-		name:                  "",
-		exclusivelyAccessible: true,
-		durable:               false,
+		Name:      "",
+		Exclusive: true,
+		Durable:   false,
 	}
 }

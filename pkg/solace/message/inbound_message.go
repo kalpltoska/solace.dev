@@ -19,7 +19,7 @@ package message
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/rgmid"
 )
 
 // InboundMessage represents a message received by a consumer.

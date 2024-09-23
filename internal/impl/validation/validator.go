@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"strings"
 
-	"solace.dev/go/messaging/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
 )
 
 // TODO we need to come back to this section and review each type of validator

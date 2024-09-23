@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"solace.dev/go/messaging/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
 )
 
 func TestTaskBufferSubmitTask(t *testing.T) {

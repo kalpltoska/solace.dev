@@ -17,8 +17,8 @@
 package solace
 
 import (
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 // MessageReceiver represents the shared functionality between all MessageReceivers

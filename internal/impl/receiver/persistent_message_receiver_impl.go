@@ -25,19 +25,19 @@ import (
 	"time"
 	"unsafe"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/constants"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/executor"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/internal/impl/message"
-	"solace.dev/go/messaging/internal/impl/validation"
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	apimessage "solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/message/rgmid"
-	"solace.dev/go/messaging/pkg/solace/resource"
-	"solace.dev/go/messaging/pkg/solace/subcode"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/constants"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/executor"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/internal/impl/message"
+	"github.com/kalpltoska/solace.dev/internal/impl/validation"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	apimessage "github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/rgmid"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace/subcode"
 )
 
 type persistentMessageReceiverImpl struct {
@@ -67,6 +67,7 @@ type persistentMessageReceiverImpl struct {
 	outstandingSubscriptionEvents     map[core.SubscriptionCorrelationID]struct{}
 
 	highwater, lowwater int
+	recvMsgs            int
 	buffer              chan ccsmp.SolClientMessagePt
 	bufferClosed        int32
 
@@ -108,9 +109,8 @@ func (receiver *persistentMessageReceiverImpl) construct(props *persistentMessag
 		receiver.subscriptions[i] = subscription.GetName()
 	}
 
-	const maxWindowSize = 255
 	// keep some extra space in the buffer so that we can handle spikes and slowdowns
-	bufferSize := 2*maxWindowSize + 2*receiver.highwater
+	bufferSize := 2*props.endpoint.WindowSize + 2*receiver.highwater
 	receiver.highwater = props.bufferHighwater
 	receiver.lowwater = props.bufferLowwater
 	receiver.buffer = make(chan ccsmp.SolClientMessagePt, bufferSize)
@@ -272,17 +272,17 @@ func (receiver *persistentMessageReceiverImpl) Start() (err error) {
 }
 
 func (receiver *persistentMessageReceiverImpl) provisionEndpoint() error {
-	if receiver.doCreateMissingResources && receiver.queue.IsDurable() {
-		errInfo := receiver.internalReceiver.ProvisionEndpoint(receiver.queue.GetName(), receiver.queue.IsExclusivelyAccessible())
+	if receiver.doCreateMissingResources && receiver.queue.Durable {
+		errInfo := receiver.internalReceiver.ProvisionEndpoint(receiver.queue.Name, receiver.queue.Exclusive)
 		if errInfo != nil {
 			if subcode.Code(errInfo.SubCode) == subcode.EndpointAlreadyExists {
-				receiver.logger.Info("Endpoint '" + receiver.queue.GetName() + "' already exists")
+				receiver.logger.Info("Endpoint '" + receiver.queue.Name + "' already exists")
 			} else {
-				receiver.logger.Warning("Failed to provision endpoint '" + receiver.queue.GetName() + "', " + errInfo.GetMessageAsString())
+				receiver.logger.Warning("Failed to provision endpoint '" + receiver.queue.Name + "', " + errInfo.GetMessageAsString())
 				return core.ToNativeError(errInfo)
 			}
 		} else {
-			receiver.logger.Info("Endpoint '" + receiver.queue.GetName() + "' provisioned successfully")
+			receiver.logger.Info("Endpoint '" + receiver.queue.Name + "' provisioned successfully")
 		}
 	}
 	return nil
@@ -996,6 +996,7 @@ func (receiver *persistentMessageReceiverImpl) startFlow() bool {
 			return false
 		}
 		receiver.logger.Info("Starting underlying message flow")
+		receiver.recvMsgs = 0
 		return true
 	}
 	return false
@@ -1020,6 +1021,8 @@ func (receiver *persistentMessageReceiverImpl) stopFlow() bool {
 }
 
 func (receiver *persistentMessageReceiverImpl) messageCallback(msg core.Receivable) (ret bool) {
+	receiver.recvMsgs++
+
 	currentState := receiver.getState()
 	if currentState == messageReceiverStateTerminating || currentState == messageReceiverStateTerminated {
 		// we should not be handling this message
@@ -1057,6 +1060,13 @@ func (receiver *persistentMessageReceiverImpl) messageCallback(msg core.Receivab
 		// backpressure
 		receiver.logger.Error("Unable to push message to buffer")
 	}
+
+	if receiver.queue.Browser {
+		if receiver.recvMsgs == receiver.queue.WindowSize && receiver.stopFlow() {
+			receiver.startFlow()
+		}
+	}
+
 	return true
 }
 
@@ -1236,13 +1246,22 @@ func (builder *persistentMessageReceiverBuilderImpl) Build(queue *resource.Queue
 	if queue == nil {
 		return nil, solace.NewError(&solace.IllegalArgumentError{}, constants.PersistentReceiverMissingQueue, nil)
 	}
-	if queue.GetName() != "" || queue.IsDurable() {
-		properties = append(properties, ccsmp.SolClientFlowPropBindName, queue.GetName())
+	if queue.Name != "" || queue.Durable {
+		properties = append(properties, ccsmp.SolClientFlowPropBindName, queue.Name)
 	}
+
+	if queue.Browser {
+		properties = append(properties, ccsmp.SolClientFlowPropBrowser, ccsmp.SolClientPropEnableVal)
+	}
+
+	if queue.WindowSize == 0 {
+		queue.WindowSize = 255
+	}
+	properties = append(properties, ccsmp.SolClientFlowPropWindowsize, fmt.Sprintf("%d", queue.WindowSize))
 
 	// Set queue durability
 	var isDurable string
-	if queue.IsDurable() {
+	if queue.Durable {
 		isDurable = ccsmp.SolClientPropEnableVal
 	} else {
 		isDurable = ccsmp.SolClientPropDisableVal

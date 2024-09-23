@@ -19,7 +19,7 @@ package message
 import (
 	"time"
 
-	"solace.dev/go/messaging/pkg/solace/message/sdt"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/sdt"
 )
 
 // Message represents the common functionality between an Inbound and Outbound message.

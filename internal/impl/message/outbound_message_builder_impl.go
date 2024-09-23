@@ -20,16 +20,16 @@ import (
 	"fmt"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
 
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/validation"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/validation"
 
-	"solace.dev/go/messaging/pkg/solace"
-	"solace.dev/go/messaging/pkg/solace/config"
-	"solace.dev/go/messaging/pkg/solace/message"
-	"solace.dev/go/messaging/pkg/solace/message/sdt"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/pkg/solace"
+	"github.com/kalpltoska/solace.dev/pkg/solace/config"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/sdt"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 // OutboundMessageBuilderImpl structure

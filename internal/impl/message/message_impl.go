@@ -21,11 +21,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"solace.dev/go/messaging/internal/ccsmp"
-	"solace.dev/go/messaging/internal/impl/core"
-	"solace.dev/go/messaging/internal/impl/logging"
-	"solace.dev/go/messaging/pkg/solace/message/sdt"
-	"solace.dev/go/messaging/pkg/solace/resource"
+	"github.com/kalpltoska/solace.dev/internal/ccsmp"
+	"github.com/kalpltoska/solace.dev/internal/impl/core"
+	"github.com/kalpltoska/solace.dev/internal/impl/logging"
+	"github.com/kalpltoska/solace.dev/pkg/solace/message/sdt"
+	"github.com/kalpltoska/solace.dev/pkg/solace/resource"
 )
 
 // MessageImpl structure
